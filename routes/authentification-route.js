@@ -24,11 +24,8 @@ router.post("/process-signup", (req, res, next) => {
 
   User.create({ fullName, email, encryptedPassword })
     .then(() => {
-<<<<<<< HEAD
       // redirect to the HOME PAGE if the sign up WORKED
-=======
       req.flash("success", "Sign up success! 😃");
->>>>>>> 82d918fcc16fb05b9dd748424ad055706b118756
       res.redirect("/");
     })
     .catch(err => next(err));
