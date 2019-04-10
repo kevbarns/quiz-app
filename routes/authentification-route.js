@@ -23,13 +23,9 @@ router.post("/process-signup", (req, res, next) => {
   const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
 
   User.create({ fullName, email, encryptedPassword })
-    .then(userDoc => {
-      sendSignupMail(userDoc)
-        .then(() => {
-          req.flash("success", "Sign up success! 😃");
-          res.redirect("/");
-        })
-        .catch(err => next(err));
+    .then(() => {
+      req.flash("success", "Sign up success!");
+      res.redirect("/");
     })
     .catch(err => next(err));
 });
