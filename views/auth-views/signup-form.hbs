@@ -1,36 +1,40 @@
 <h2>Sign Up</h2>
 
-{{> flash_messages}}
+{{!-- {{> flash_messages}} --}}
+<div class="container">
 
-<form action="/process-signup" method="POST" class="form-group">
-  <label>
-    Your Full Name (2 characters or more):
-    <input type="text" name="fullName" placeholder="ex: Jane Doe" minlength="2" required />
-  </label>
+  <form action="/process-signup" method="POST" class="form-group">
+    <label>
+      Your Full Name (2 characters or more):
+      <input type="text" name="fullName" placeholder="ex: Jane Doe" minlength="2" required />
+    </label>
 
-  <label>
-    Email (something@something.com):
-    <input type="email" name="email" placeholder="Enter email here" required />
-  </label>
+    <label>
+      Email (something@something.com):
+      <input type="email" name="email" placeholder="Enter email here" required />
+    </label>
 
-  <label for="exampleFormControlSelect1">Role</label>
-  <select class="form-control" id="exampleFormControlSelect1">
-    <option>normal</option>
-    <option>admin</option>
-  </select>
+    <label for="exampleFormControlSelect1">Role</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>normal</option>
+      <option>admin</option>
+    </select>
 
-  <label>
-    Company Name:
-    <input type="text" name="companyName" placeholder="Enter the name of your company" required />
-  </label>
+    <label>
+      Company Name:
+      <input type="text" name="companyName" placeholder="Enter the name of your company" required />
+    </label>
 
-  <label for="exampleFormControlFile1">Upload Company Logo</label>
-  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    <div>
+      <label for="exampleFormControlFile1">Upload Company Logo</label>
+      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
 
-  <label>
-    Password (must contain a digit 0-9):
-    <input type="password" name="originalPassword" placeholder="Enter password here" required />
-  </label>
+    <label>
+      Password (must contain a digit 0-9):
+      <input type="password" name="originalPassword" placeholder="Enter password here" required />
+    </label>
 
-  <button>Sign Up</button>
-</form>
+    <button>Sign Up</button>
+  </form>
+</div>
