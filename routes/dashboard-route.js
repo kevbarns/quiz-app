@@ -18,9 +18,12 @@ router.get('/', (req, res, next) => {
 
 // Create a new quizz
 router.post("/process-quiz", (req, res, next) => {
+  // req.user comes from Passport's deserializeUser()
+  // (it's the document from the database of the logged-in user)
+  const { userId } = req.user
   const { name, description, theme, url } = req.body;
   // res.json(req.body);
-  Quiz.create({ name, description, theme, url })
+  Quiz.create({ userId,  name, description, theme, url })
     .then(quizDoc => {
       // redirect if it's successful
       // (redirect ONLY to addresses - not to HBS files)
