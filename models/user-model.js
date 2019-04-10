@@ -12,7 +12,6 @@ const userSchema = new Schema(
       enum: ["normal", "admin"],
       default: "normal"
     },
-    favorites: [{recipes: {type: Schema.Types.ObjectId, ref: "Recipes"}}],
     companyName: {type: String, minlength: 2},
     companyLogo: {type: String}
   },
