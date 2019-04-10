@@ -7,7 +7,7 @@ const Quiz = require("../models/quiz-model.js");
 router.get("/quizzes", (req, res, next) => {
   const currentUser = req.user._id;
   // whenever a user visits "/quizzes" find all the quizzes they have created so far
-  Book.find({ userId: { $eq: currentUser }})
+  Quiz.find({ userId: { $eq: currentUser }})
     .sort({ timestamp: -1 }) // how do we want them sorted ?
     .then(quizResults => {
       // send the database query results to the HBS file as "quizArray"
@@ -26,7 +26,7 @@ router.get("/quizzes", (req, res, next) => {
 router.get("/quiz/:quizId", (req, res, next) => {
   const { quizId } = req.params;
   // find the quiz in the database using the ID passed as a path parameter
-  Book.findById(quizId)
+  Quiz.findById(quizId)
     .then(quizDoc => {
       // send the query results to the HBS file as "quizItem"
       res.locals.quizItem = quizDoc;
