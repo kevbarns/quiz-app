@@ -3,6 +3,11 @@ const router  = express.Router();
 
 const Quiz = require("../models/quiz-model.js");
 
+router.get("/new", (req, res, next) => {
+  console.log("COUCOU");
+  res.render("./quiz-form.hbs");
+});
+
 // Get our user's quizzes
 router.get("/quizzes", (req, res, next) => {
   const currentUser = req.user._id;
