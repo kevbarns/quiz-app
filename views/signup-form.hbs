@@ -1,0 +1,22 @@
+<h2>Sign Up</h2>
+
+{{> flash_messages}}
+
+<form action="/process-signup" method="POST">
+  <label>
+    Your Full Name (2 characters or more):
+    <input type="text" name="fullName" placeholder="ex: Jane Doe" minlength="2" required />
+  </label>
+
+  <label>
+    Email (something@something.com):
+    <input type="email" name="email" placeholder="Enter email here" required />
+  </label>
+
+  <label>
+    Password (must contain a digit 0-9):
+    <input type="password" name="originalPassword" placeholder="Enter password here" required />
+  </label>
+
+  <button>Sign Up</button>
+</form>
