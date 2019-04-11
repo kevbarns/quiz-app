@@ -11,10 +11,6 @@ cloudinary.config({
 var storage = cloudinaryStorage({
   cloudinary,
   folder: "quizz-app", // The name of the folder in cloudinary
-  allowedFormats: ["jpg", "png"],
-  filename: function(req, file, cb) {
-    cb(null, file.originalname); // The file on cloudinary would have the same name as the original file name
-  }
 });
 
 const uploadFile = multer({storage});
