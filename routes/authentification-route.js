@@ -1,16 +1,20 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
+const router = express.Router();
 
+//Datamodel
 const User = require("../models/user-model.js");
 
-const router = express.Router();
+// Conf
+const uploadFile = require("../config/cloudinary.js");
 
 router.get("/signup", (req, res, next) => {
   res.render("auth-views/signup-form.hbs");
 });
 
-router.post("/process-signup", (req, res, next) => {
-  const { fullName, email, originalPassword } = req.body;
+router.post("/process-signup", uploadFile.single("companyLogo"), (req, res, next) => {
+  const {fullName, email, companyName, originalPassword} = req.body;
+  const companyLogo = req.file.url;
 
   // enforce password rules (can't be empty and MUST have a digit)
   if (!originalPassword || !originalPassword.match(/[0-9]/)) {
@@ -22,11 +26,14 @@ router.post("/process-signup", (req, res, next) => {
   // encrypt the user's password before saving it
   const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
 
-  User.create({ fullName, email, encryptedPassword })
-    .then(() => {
+  User.create({fullName, email, companyName, companyLogo, encryptedPassword})
+    .then(userDoc => {
       // redirect to the HOME PAGE if the sign up WORKED
-      req.flash("success", "Sign up success! 😃");
-      res.redirect("/");
+      req.logIn(userDoc, () => {
+        userDoc.encryptedPassword = undefined;
+        req.flash("success", "Sign up success! 😃");
+        res.redirect("/");
+      });
     })
     .catch(err => next(err));
 });
@@ -36,8 +43,8 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/process-login", (req, res, next) => {
-  const { email, originalPassword } = req.body;
-  User.findOne({ email: { $eq: email } })
+  const {email, originalPassword} = req.body;
+  User.findOne({email: {$eq: email}})
     .then(userDoc => {
       if (!userDoc) {
         req.flash("error", "Email is incorrect.");
@@ -45,7 +52,7 @@ router.post("/process-login", (req, res, next) => {
         return;
       }
 
-      const { encryptedPassword } = userDoc;
+      const {encryptedPassword} = userDoc;
       if (!bcrypt.compareSync(originalPassword, encryptedPassword)) {
         req.flash("error", "Password is incorrect.");
         res.redirect("/login");

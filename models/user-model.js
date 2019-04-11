@@ -10,7 +10,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       enum: ["normal", "admin"],
-      default: "normal"
+      default: "admin"
     },
     companyName: {type: String, minlength: 2},
     companyLogo: {type: String}

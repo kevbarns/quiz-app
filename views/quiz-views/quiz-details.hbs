@@ -1,33 +1,60 @@
-<h2>{{quizDoc.name}} ({{quizDoc.theme}})</h2>
+<h2>{{quizItem.name}} ({{quizItem.theme}})</h2>
 
-<p>{{quizDoc.description}}}}</p>
+<p>{{quizItem.description}}</p>
 
 
-<form action="/process-card" method="POST">
-  {{!-- <div class="form-group">
-    <label for="exampleFormControlFile1">Upload your company logo</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-  </div> --}}
+<form action="/quiz/{{quizItem._id}}/process-card" method="POST">
   <div class="form-group">
-    <label for="exampleInputEmail1">Write your question</label>
-    <input type="text" class="form-control" id="exampleInputquestion" aria-describedby="questionHelp"
+    <label for="question">
+      Write your question:
+      <input type="text" name="question" class="form-control" id="exampleInputquestion" aria-describedby="questionHelp"
       placeholder="Enter question">
+    </label>
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput">Answer 1</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter answer 1">
+    <label for="formGroupExampleInput">
+      First Option:
+      <input type="text" name="firstAnswer" class="form-control" id="formGroupExampleInput" placeholder="Enter answer 1">
+    </label>
+    <label>
+      <input type="checkbox" name="firstTrue" />
+    </label>
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput2">Answer 2</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter answer 2">
+    <label for="formGroupExampleInput2">
+      Second Option:
+      <input type="text" name="secondAnswer" class="form-control" id="formGroupExampleInput2" placeholder="Enter answer 2">
+    </label>
+        <label>
+      <input type="checkbox" name="secondTrue" />
+    </label>
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput3">Anwser 3</label>
-    <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Enter answer 3">
+    <label for="formGroupExampleInput3">
+      Third Option:
+      <input type="text" name="thirdAnswer" class="form-control" id="formGroupExampleInput3" placeholder="Enter answer 3">
+    </label>
+    <label>
+      <input type="checkbox" name="thirdTrue" />
+    </label>
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput4">Answer 4</label>
-    <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Enter anwser 4">
+    <label for="formGroupExampleInput4">
+      Fourth Option:
+      <input type="text" name="fourthAnswer" class="form-control" id="formGroupExampleInput4" placeholder="Enter anwser 4">
+  </label>
+      <label>
+      <input type="checkbox" name="fourthTrue" />
+    </label>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+      {{#if cardList}}
+        {{#each cardList}}
+          <h4>{{this.question}}</h4>
+            {{#each this.options}}
+              <h5>{{option}} {{#if valid}}✅{{/if}}</h5>
+            {{/each}}
+        {{/each}}
+      {{/if}}
