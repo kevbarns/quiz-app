@@ -13,7 +13,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #091e4d;
+  background-color: rgba(9, 30, 77, 0.5);
   z-index: -1;
   cursor: pointer;
   background-image: url(/images/emily-morter-188019-unsplash.jpg);

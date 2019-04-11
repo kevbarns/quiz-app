@@ -12,13 +12,24 @@
 <p>Welcome to {{title}}</p>
 
 {{#if currentUser}}
-<a href='/new'>New</a>
-{{/if}}
+<a href="/new">Create a Quizz</a>
 
+{{!-- THERE GOES THE DASHBOARD WITH THE USER'S QUIZZES' LIST --}}
+     {{#if quizArray}}
+            {{#each quizArray}}
+                  <h4>{{this.name}}</h4>
+            {{/each}}
+     {{/if}}
+
+
+{{else}}
 <section id="landing-page">
       <h1 class="index">CRÉER DES QUIZ N'A JAMAIS ÉTÉ AUSSI FACILE!</h1>
       <p>Créer et partager vos quiz avec vos collaborateurs.</p>
       <p>Simple, rapide et gratuit!</p>
 </section>
+{{/if}}
+
+
 
 <div class="overlay"></div>

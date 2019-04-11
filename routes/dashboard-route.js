@@ -62,7 +62,7 @@ router.get("/quiz/:quizId", (req, res, next) => {
 router.post("/process-quiz", (req, res, next) => {
   // req.user comes from Passport's deserializeUser()
   // (it's the document from the database of the logged-in user)
-  const { userId } = req.user
+  const userId = req.user._id;
   const { name, description, theme, url } = req.body;
   // res.json(req.body);
   Quiz.create({ userId,  name, description, theme, url })
@@ -96,8 +96,6 @@ router.post("/quiz/:quizId/process-card", (req, res, next) => {
   // res.json(req.body);
   QuizDetail.create({ quizId, 
                       question, 
-                      answer: [firstAnswer, secondAnswer, thirdAnswer, fourthAnswer], 
-                      truth: [firstTrue, secondTrue, thirdTrue, fourthTrue],
                       options: [
                         { option: firstAnswer, valid : firstTrue },
                         { option: secondAnswer, valid : secondTrue },
