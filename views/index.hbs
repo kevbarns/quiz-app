@@ -1,26 +1,21 @@
+
+
 {{#if currentUser}}
 <a href="/new">Create a Quizz</a>
 
 {{!-- THERE GOES THE DASHBOARD WITH THE USER'S QUIZZES' LIST --}}
-{{#if quizArray}}
-{{#each quizArray}}
-<h4>{{this.name}}</h4>
-{{/each}}
-{{/if}}
-
+     {{#if quizArray}}
+            {{#each quizArray}}
+                  <h4>{{this.name}}</h4>
+            {{/each}}
+      {{/if}}
 
 {{else}}
-<div class="container">
-      <div class="row">
-            <div class="col-12 landing-page">
-                  <h1 class="index">CRÉER DES QUIZ N'A JAMAIS ÉTÉ AUSSI FACILE!</h1>
-            </div>
-            <div class="col-12 landing-page">
-                  <p>Créer et partager vos quiz avec vos collaborateurs. Simple, rapide et gratuit!</p>
-            </div>
-      </div>
-      <div class="back">
-            <div class="overlay"></div>
-      </div>
-</div>
+{{!-- <div class="container"> --}}
+<section id="landing-page">
+      <h1 class="index">CRÉER DES QUIZ N'A JAMAIS ÉTÉ AUSSI FACILE!</h1>
+      <p>Créer et partager vos quiz avec vos collaborateurs.</p>
+      <p>Simple, rapide et gratuit!</p>
+</section>
+{{!-- </div> --}}
 {{/if}}
