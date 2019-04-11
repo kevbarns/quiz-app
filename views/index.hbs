@@ -1,24 +1,19 @@
-{{!-- <h2>Home Page</h2> --}}
-
-{{!-- {{> flash_messages}} --}}
-
-{{!-- {{#if currentUser}}
-<h3>Welcome back, {{currentUser.fullName}}.</h3>
-{{else}}
-<p>Why don't you make an account?</p>
-<a href="/signup">Sign Up Today</a>
-{{/if}} --}}
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-
 {{#if currentUser}}
+
 <a href='/new'>New</a>
+{{else}}
+
+<div class="container">
+      <div class="row">
+            <div class="col-12 landing-page">
+                  <h1 class="index">CRÉER DES QUIZ N'A JAMAIS ÉTÉ AUSSI FACILE!</h1>
+            </div>
+            <div class="col-12 landing-page">
+                  <p>Créer et partager vos quiz avec vos collaborateurs. Simple, rapide et gratuit!</p>
+            </div>
+      </div>
+      <div class="back">
+            <div class="overlay"></div>
+      </div>
+</div>
 {{/if}}
-
-<section id="landing-page">
-      <h1 class="index">CRÉER DES QUIZ N'A JAMAIS ÉTÉ AUSSI FACILE!</h1>
-      <p>Créer et partager vos quiz avec vos collaborateurs.</p>
-      <p>Simple, rapide et gratuit!</p>
-</section>
-
-<div class="overlay"></div>
