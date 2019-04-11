@@ -1,5 +1,17 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    console.log("IronGenerator JS imported successfully!");
+  },
+  false
+);
 
-  console.log('IronGenerator JS imported successfully!');
+/* Open the sidenav */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
 
-}, false);
+/* Close/hide the sidenav */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
