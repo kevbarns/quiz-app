@@ -6,10 +6,13 @@ const quizDetailSchema = new Schema(
     quizId: {type: Schema.Types.ObjectId, ref: "Quiz"},
     question: {type: String, required: true},
     answer: {type: Array},
-    truth: {type: Array, required: true}
+    truth: {type: Array, required: true},
+    options: [
+      {type: Object}
+    ]
   },
   {
-    timestamps: true
+    timestamp: true
   }
 );
 
