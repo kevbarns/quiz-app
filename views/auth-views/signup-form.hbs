@@ -1,40 +1,52 @@
 <h2>Sign Up</h2>
 
 {{!-- {{> flash_messages}} --}}
+
 <div class="container">
+  <form action="/process-signup" method="POST" enctype="multipart/form-data">
+    {{errorMessage}}
 
-  <form action="/process-signup" method="POST" class="form-group">
-    <label>
-      Your Full Name (2 characters or more):
-      <input type="text" name="fullName" placeholder="ex: Jane Doe" minlength="2" required />
-    </label>
+    <h6> <a class="cancel" href="/">Cancel</a></h6>
 
-    <label>
-      Email (something@something.com):
-      <input type="email" name="email" placeholder="Enter email here" required />
-    </label>
-
-    <label for="exampleFormControlSelect1">Role</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>normal</option>
-      <option>admin</option>
-    </select>
-
-    <label>
-      Company Name:
-      <input type="text" name="companyName" placeholder="Enter the name of your company" required />
-    </label>
-
-    <div>
-      <label for="exampleFormControlFile1">Upload Company Logo</label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputFullName">Full Name</label>
+        <input type="text" class="form-control" id="inputFullName" name="fullName" placeholder="Full name here" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email here" />
+      </div>
     </div>
 
-    <label>
-      Password (must contain a digit 0-9):
-      <input type="password" name="originalPassword" placeholder="Enter password here" required />
-    </label>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCompanyName">Company Name</label>
+        <input type="text" class="form-control" id="inputCompanyName" name="CompanyName"
+          placeholder="Company Name here" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPicture">Company Logo</label>
+        <input type="file" name="profilePhoto" class="form-control-file" id="inputPicture"
+          placeholder="Need to find a way to upload a picture from computer or phone" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" name="originalPassword"
+          placeholder="Password here" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputRole">Role</label>
+        <select name="role" id="inputRole" class="form-control">
+          <option selected>Normal</option>
+          <option>Admin</option>
+        </select>
+      </div>
+    </div>
 
-    <button>Sign Up</button>
+    <button class="btn btn-primary">Submit</button>
+
   </form>
 </div>
