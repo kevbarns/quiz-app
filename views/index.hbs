@@ -1,12 +1,19 @@
 {{#if currentUser}}
 <a href="/new">Create a Quizz</a>
+<div class="back">
+      <div class="overlay"></div>
+</div>
+{{!-- SIDEBAR --}}
+
 
 {{!-- THERE GOES THE DASHBOARD WITH THE USER'S QUIZZES' LIST --}}
+
 {{#if quizArray}}
 {{#each quizArray}}
 <h4>{{this.name}}</h4>
 {{/each}}
 {{/if}}
+</div>
 
 
 {{else}}
