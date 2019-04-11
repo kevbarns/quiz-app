@@ -3,7 +3,7 @@
 {{!-- {{> flash_messages}} --}}
 <div class="container">
 
-  <form action="/process-signup" method="POST" class="form-group">
+  <form action="/process-signup" method="POST" enctype="multipart/form-data" class="form-group">
     <label>
       Your Full Name (2 characters or more):
       <input type="text" name="fullName" placeholder="ex: Jane Doe" minlength="2" required />
@@ -14,12 +14,6 @@
       <input type="email" name="email" placeholder="Enter email here" required />
     </label>
 
-    <label for="exampleFormControlSelect1">Role</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>normal</option>
-      <option>admin</option>
-    </select>
-
     <label>
       Company Name:
       <input type="text" name="companyName" placeholder="Enter the name of your company" required />
@@ -27,7 +21,7 @@
 
     <div>
       <label for="exampleFormControlFile1">Upload Company Logo</label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      <input type="file" name="companyLogo" class="form-control-file" id="exampleFormControlFile1">
     </div>
 
     <label>
