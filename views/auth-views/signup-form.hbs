@@ -1,7 +1,6 @@
 <h2>Sign Up</h2>
 
 {{!-- {{> flash_messages}} --}}
-<<<<<<< HEAD
 
 <div class="container">
   <form action="/process-signup" method="POST" enctype="multipart/form-data">
@@ -45,29 +44,6 @@
           <option>Admin</option>
         </select>
       </div>
-=======
-<div class="container">
-
-  <form action="/process-signup" method="POST" enctype="multipart/form-data" class="form-group">
-    <label>
-      Your Full Name (2 characters or more):
-      <input type="text" name="fullName" placeholder="ex: Jane Doe" minlength="2" required />
-    </label>
-
-    <label>
-      Email (something@something.com):
-      <input type="email" name="email" placeholder="Enter email here" required />
-    </label>
-
-    <label>
-      Company Name:
-      <input type="text" name="companyName" placeholder="Enter the name of your company" required />
-    </label>
-
-    <div>
-      <label for="exampleFormControlFile1">Upload Company Logo</label>
-      <input type="file" name="companyLogo" class="form-control-file" id="exampleFormControlFile1">
->>>>>>> f9bd6225bc3a1b355d0cefd7e847a66b78f59e2a
     </div>
 
     <button class="btn btn-primary">Submit</button>
