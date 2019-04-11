@@ -1,8 +1,15 @@
 {{#if currentUser}}
+<a href="/new">Create a Quizz</a>
 
-<a href='/new'>New</a>
+{{!-- THERE GOES THE DASHBOARD WITH THE USER'S QUIZZES' LIST --}}
+{{#if quizArray}}
+{{#each quizArray}}
+<h4>{{this.name}}</h4>
+{{/each}}
+{{/if}}
+
+
 {{else}}
-
 <div class="container">
       <div class="row">
             <div class="col-12 landing-page">

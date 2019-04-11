@@ -15,7 +15,7 @@ router.get("/signup", (req, res, next) => {
 router.post("/process-signup", uploadFile.single("companyLogo"), (req, res, next) => {
   const {fullName, email, companyName, originalPassword} = req.body;
   const companyLogo = req.file.url;
-
+  // TODO : format the company name (no accent, no space, lower case, no special chars)
   // enforce password rules (can't be empty and MUST have a digit)
   if (!originalPassword || !originalPassword.match(/[0-9]/)) {
     req.flash("error", "Password can't be blank and must contain a number.");
@@ -32,6 +32,7 @@ router.post("/process-signup", uploadFile.single("companyLogo"), (req, res, next
       req.logIn(userDoc, () => {
         userDoc.encryptedPassword = undefined;
         req.flash("success", "Sign up success! 😃");
+        // TODO : redirect to dashboard homepage
         res.redirect("/");
       });
     })
@@ -39,6 +40,7 @@ router.post("/process-signup", uploadFile.single("companyLogo"), (req, res, next
 });
 
 router.get("/login", (req, res, next) => {
+  // TODO : redirect to dashboard homepage
   res.render("auth-views/login-form.hbs");
 });
 
@@ -59,6 +61,7 @@ router.post("/process-login", (req, res, next) => {
         return;
       }
       req.logIn(userDoc, () => {
+        // TODO : redirect to dashboard homepage
         req.flash("success", "Log in success!");
         res.redirect("/");
       });
@@ -69,6 +72,7 @@ router.post("/process-login", (req, res, next) => {
 router.get("/logout", (req, res, next) => {
   req.logOut();
   req.flash("success", "Logged out successfully!");
+  // TODO : redirect to homepage
   res.redirect("/");
 });
 

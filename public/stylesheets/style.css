@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 body {
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+}
 
 .back {
   position: fixed;
@@ -10,12 +11,14 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgba(9, 30, 77, 0.5);
   z-index: -1;
   cursor: pointer;
   background-image: url(/images/emily-morter-188019-unsplash.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+}
 
 .overlay {
   position: absolute;
@@ -24,12 +27,14 @@ body {
   width: 100%;
   height: 100%;
   background-color: #091e4d;
-  opacity: 0.6; }
+  opacity: 0.6;
+}
 
 .logo {
   font-weight: 700;
   font-size: 36px;
-  color: #ffffff; }
+  color: #ffffff;
+}
 
 .btn-color {
   background-color: #efb233;
@@ -37,13 +42,16 @@ body {
   justify-content: right;
   margin-right: 10px;
   text-align: center;
-  border-radius: 3px; }
+  border-radius: 3px;
+}
 
 .margin-nav {
-  margin-left: 650px; }
+  margin-left: 650px;
+}
 
 ul li a {
-  color: #ffffff; }
+  color: #ffffff;
+}
 
 .index {
   font-weight: 700;
@@ -54,7 +62,8 @@ ul li a {
   height: 120px;
   margin-top: 20%;
   margin-left: 210px;
-  padding-bottom: 0; }
+  padding-bottom: 0;
+}
 
 .landing-page p {
   font-weight: 700;
@@ -63,6 +72,7 @@ ul li a {
   letter-spacing: 0.23px;
   width: 600px;
   height: 93px;
-  margin-left: 210px; }
+  margin-left: 210px;
+}
 
 /*# sourceMappingURL=style.css.map */
