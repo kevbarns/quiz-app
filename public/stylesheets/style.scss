@@ -16,7 +16,7 @@ body {
   bottom: 0;
   z-index: -1;
   cursor: pointer;
-  background-image: url(/images/emily-morter-188019-unsplash.jpg);
+  background-image: url(/images/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -119,6 +119,14 @@ ul li a {
   .sidenav a {
     font-size: 18px;
   }
+}
+
+.background {
+  height: 100vh;
+  background-image: url(/images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 // SIDEBAR
