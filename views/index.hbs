@@ -4,15 +4,21 @@
       <div class="overlay"></div>
 </div>
 {{!-- SIDEBAR --}}
-
+<div class="sidebar">
+      <a href="/"><img src="/public/images/dashboardgrey.png" /></a>
+      <a href="/quiz"><img src="/public/images/docgrey.png" /></a>
+      <a href="#"><img src="/public/images/settingsgrey.png" /></a>
+</div>
 
 {{!-- THERE GOES THE DASHBOARD WITH THE USER'S QUIZZES' LIST --}}
 
-{{#if quizArray}}
-{{#each quizArray}}
-<h4>{{this.name}}</h4>
-{{/each}}
-{{/if}}
+<div class="main">
+
+      {{#if quizArray}}
+      {{#each quizArray}}
+      <h4>{{this.name}}</h4>
+      {{/each}}
+      {{/if}}
 </div>
 
 
