@@ -1,1 +1,18 @@
-coucou
+<main class="container-fluid h-100">
+  <div class="container-fluid main-top">
+    <h3>LISTE DES QUIZZ</h3>
+    <a href="/new"><button class="btn btn-color">CRÉER UN QUIZ</button></a>
+  </div>
+
+  <section class="form-box container">
+    <div class="row input-box">
+      {{#each quizArray}}
+      <h5>{{this.name}}</h5>
+      {{/each}}
+  </section>
+
+  <div class="back">
+    <div class="overlay">
+    </div>
+  </div>
+</main>
