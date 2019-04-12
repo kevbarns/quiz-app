@@ -9,12 +9,14 @@ const User = require("../models/user-model.js");
 // TODO : recover quiz -
 // TODO : display input for player name and save session
 
-router.get("/:quizId", (req, res, next) => {
-  Quiz.findById(req.params)
-    .then(quizData => {
-      res.render("fe-quiz.hbs");
-    })
-    .catch(err => next(err));
+// router.get("/:quizId", (req, res, next) => {
+router.get("/quizId", (req, res, next) => {
+  res.render("quiz-views/fe-quiz.hbs");
+  // Quiz.findById(req.params)
+  //   .then(quizData => {
+  //     res.render("fe-quiz.hbs");
+  //   })
+  //   .catch(err => next(err));
 });
 
 router.post("/:quizId/process-player", (req, res, next) => {
