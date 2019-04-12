@@ -8,7 +8,7 @@ document.addEventListener(
 
 /* Open the sidenav signup */
 function openNavSign() {
-  document.getElementById("mySidenavSign").style.width = "50%";
+  document.getElementById("mySidenavSign").style.width = "60%";
 }
 
 /* Close/hide the sidenav signup */
