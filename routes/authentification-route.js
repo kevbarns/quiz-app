@@ -12,37 +12,42 @@ router.get("/signup", (req, res, next) => {
   res.render("auth-views/signup-form.hbs");
 });
 
-router.post("/process-signup", uploadFile.single("companyLogo"), (req, res, next) => {
-  const {fullName, email, companyName, originalPassword} = req.body;
-  const companyLogo = req.file.url;
-  // TODO : format the company name (no accent, no space, lower case, no special chars)
-  // enforce password rules (can't be empty and MUST have a digit)
-  if (!originalPassword || !originalPassword.match(/[0-9]/)) {
-    req.flash("error", "Password can't be blank and must contain a number.");
-    res.redirect("/signup");
-    return;
-  }
+router.post(
+  "/process-signup",
+  uploadFile.single("companyLogo"),
+  (req, res, next) => {
+    const { fullName, email, companyName, originalPassword } = req.body;
+    const companyLogo = req.file.url;
+    // TODO : format the company name (no accent, no space, lower case, no special chars)
+    // enforce password rules (can't be empty and MUST have a digit)
+    if (!originalPassword || !originalPassword.match(/[0-9]/)) {
+      req.flash("error", "Password can't be blank and must contain a number.");
+      res.redirect("/signup");
+      return;
+    }
 
-  // encrypt the user's password before saving it
-  const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
+    // encrypt the user's password before saving it
+    const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
 
-  User.create({
-    fullName, 
-    email, 
-    companyName, 
-    companyLogo, 
-    encryptedPassword})
-    .then(userDoc => {
-      // redirect to the HOME PAGE if the sign up WORKED
-      req.logIn(userDoc, () => {
-        userDoc.encryptedPassword = undefined;
-        req.flash("success", "Sign up success! 😃");
-        // TODO : redirect to dashboard homepage
-        res.redirect("/");
-      });
+    User.create({
+      fullName,
+      email,
+      companyName,
+      companyLogo,
+      encryptedPassword
     })
-    .catch(err => next(err));
-});
+      .then(userDoc => {
+        // redirect to the HOME PAGE if the sign up WORKED
+        req.logIn(userDoc, () => {
+          userDoc.encryptedPassword = undefined;
+          req.flash("success", "Sign up success! 😃");
+          // TODO : redirect to dashboard homepage
+          res.redirect("/dashboard");
+        });
+      })
+      .catch(err => next(err));
+  }
+);
 
 router.get("/login", (req, res, next) => {
   // TODO : redirect to dashboard homepage
@@ -50,8 +55,8 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/process-login", (req, res, next) => {
-  const {email, originalPassword} = req.body;
-  User.findOne({email: {$eq: email}})
+  const { email, originalPassword } = req.body;
+  User.findOne({ email: { $eq: email } })
     .then(userDoc => {
       if (!userDoc) {
         req.flash("error", "Email is incorrect.");
@@ -59,7 +64,7 @@ router.post("/process-login", (req, res, next) => {
         return;
       }
 
-      const {encryptedPassword} = userDoc;
+      const { encryptedPassword } = userDoc;
       if (!bcrypt.compareSync(originalPassword, encryptedPassword)) {
         req.flash("error", "Password is incorrect.");
         res.redirect("/login");
@@ -68,7 +73,7 @@ router.post("/process-login", (req, res, next) => {
       req.logIn(userDoc, () => {
         // TODO : redirect to dashboard homepage
         req.flash("success", "Log in success!");
-        res.redirect("/");
+        res.redirect("/dashboard");
       });
     })
     .catch(err => next(err));
