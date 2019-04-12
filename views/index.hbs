@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{#if currentUser}}
 <a href="/new">Create a Quizz</a>
 <div class="back">
@@ -25,15 +26,45 @@
 {{else}}
 <div class="container">
       <div class="row">
+=======
+
+<div class="container-fluid h-100">
+      <div class="row h-100">
+            {{#if currentUser}}   
+                  <main class="dashboard container-fluid">
+                  <div>
+                  <div>
+                        <h3>LISTE DES QUIZZ</h3>
+                  </div>
+                  <div>
+                        <a class="btn btn-color" role="button" href="/new">CRÉER UN QUIZZ</a>
+                  </div>
+                  </div>
+                  {{#if quizArray}}
+                        {{#each quizArray}}
+                              <article class="quiz-card">
+                                    <div>
+                                          <h4>{{this.name}}</h4>
+                                    </div>
+                                    <div>
+                                          <a href="/quiz/{{this.id}}">View</a>
+                                    </div>
+                              </article>
+                        {{/each}}
+                  {{/if}}
+                  </main>             
+            {{else}}
+>>>>>>> 1383fd96368951c9dc2eb5e7f31e077dea4ea1f0
             <div class="col-12 landing-page">
                   <h1 class="index">CRÉER DES QUIZ N'A JAMAIS ÉTÉ AUSSI FACILE!</h1>
             </div>
             <div class="col-12 landing-page">
                   <p>Créer et partager vos quiz avec vos collaborateurs. Simple, rapide et gratuit!</p>
             </div>
+            {{/if}}
+
       </div>
       <div class="back">
             <div class="overlay"></div>
       </div>
 </div>
-{{/if}}
