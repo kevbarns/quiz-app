@@ -1,60 +1,29 @@
-<<<<<<< HEAD
-{{#if currentUser}}
-<a href="/new">Create a Quizz</a>
-<div class="back">
-      <div class="overlay"></div>
-</div>
-{{!-- SIDEBAR --}}
-<div class="sidebar">
-      <a href="/"><img src="/public/images/dashboardgrey.png" /></a>
-      <a href="/quiz"><img src="/public/images/docgrey.png" /></a>
-      <a href="#"><img src="/public/images/settingsgrey.png" /></a>
-</div>
-
-{{!-- THERE GOES THE DASHBOARD WITH THE USER'S QUIZZES' LIST --}}
-
-<div class="main">
-
-      {{#if quizArray}}
-      {{#each quizArray}}
-      <h4>{{this.name}}</h4>
-      {{/each}}
-      {{/if}}
-</div>
-
-
-{{else}}
-<div class="container">
-      <div class="row">
-=======
-
 <div class="container-fluid h-100">
       <div class="row h-100">
-            {{#if currentUser}}   
-                  <main class="dashboard container-fluid">
+            {{#if currentUser}}
+            <main class="dashboard container-fluid">
                   <div>
-                  <div>
-                        <h3>LISTE DES QUIZZ</h3>
-                  </div>
-                  <div>
-                        <a class="btn btn-color" role="button" href="/new">CRÉER UN QUIZZ</a>
-                  </div>
+                        <div>
+                              <h3>LISTE DES QUIZZ</h3>
+                        </div>
+                        <div>
+                              <a class="btn btn-color" role="button" href="/new">CRÉER UN QUIZZ</a>
+                        </div>
                   </div>
                   {{#if quizArray}}
-                        {{#each quizArray}}
-                              <article class="quiz-card">
-                                    <div>
-                                          <h4>{{this.name}}</h4>
-                                    </div>
-                                    <div>
-                                          <a href="/quiz/{{this.id}}">View</a>
-                                    </div>
-                              </article>
-                        {{/each}}
+                  {{#each quizArray}}
+                  <article class="quiz-card">
+                        <div>
+                              <h4>{{this.name}}</h4>
+                        </div>
+                        <div>
+                              <a href="/quiz/{{this.id}}">View</a>
+                        </div>
+                  </article>
+                  {{/each}}
                   {{/if}}
-                  </main>             
+            </main>
             {{else}}
->>>>>>> 1383fd96368951c9dc2eb5e7f31e077dea4ea1f0
             <div class="col-12 landing-page">
                   <h1 class="index">CRÉER DES QUIZ N'A JAMAIS ÉTÉ AUSSI FACILE!</h1>
             </div>
