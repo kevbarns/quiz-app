@@ -1,22 +1,30 @@
-<h1>Create your quiz</h1>
+<main class="dashboard container-fluid h-100">
+<h3>CRÉER UN QUIZZ</h3>
 
-<form action="/process-quiz" method="POST">
-  <label>
-    Name:
-    <input type="text" name="name" placeholder="My quiz's name" required />
+<form class="form-box container" action="/process-quiz" method="POST">
+    <div class="row input-box">
+    <label>
+    Titre
+    <textarea name="name" rows="1" cols="50"></textarea>
   </label>
 
   <label>
-    Description:
-    <input type="text" name="description" placeholder="What the purpose of this quiz is" required />
+    Description
+    <textarea name="description" rows="4" cols="50"></textarea>
   </label>
+  </div>
 
-  <label>
+
+  {{!-- <label>
     <select type="text" name="theme" >
       <option value="Classic">Classic</option>
       <option value="Survey">Survey</option>
       <option value="Other">Other</option>
     </select> 
-  </label>
-  <button>Create This Quiz</button>
+  </label> --}}
+  <button class="btn btn-color">VALIDER</button>
 </form>
+      <div class="back">
+            <div class="overlay"></div>
+      </div>
+</main>

@@ -1,21 +1,40 @@
 
+<div class="container-fluid h-100">
+      <div class="row h-100">
+            {{#if currentUser}}   
+                  <main class="dashboard container-fluid">
+                  <div>
+                  <div>
+                        <h3>LISTE DES QUIZZ</h3>
+                  </div>
+                  <div>
+                        <a class="btn btn-color" role="button" href="/new">CRÉER UN QUIZZ</a>
+                  </div>
+                  </div>
+                  {{#if quizArray}}
+                        {{#each quizArray}}
+                              <article class="quiz-card">
+                                    <div>
+                                          <h4>{{this.name}}</h4>
+                                    </div>
+                                    <div>
+                                          <a href="/quiz/{{this.id}}">View</a>
+                                    </div>
+                              </article>
+                        {{/each}}
+                  {{/if}}
+                  </main>             
+            {{else}}
+            <div class="col-12 landing-page">
+                  <h1 class="index">CRÉER DES QUIZ N'A JAMAIS ÉTÉ AUSSI FACILE!</h1>
+            </div>
+            <div class="col-12 landing-page">
+                  <p>Créer et partager vos quiz avec vos collaborateurs. Simple, rapide et gratuit!</p>
+            </div>
+            {{/if}}
 
-{{#if currentUser}}
-<a href="/new">Create a Quizz</a>
-
-{{!-- THERE GOES THE DASHBOARD WITH THE USER'S QUIZZES' LIST --}}
-     {{#if quizArray}}
-            {{#each quizArray}}
-                  <h4>{{this.name}}</h4>
-            {{/each}}
-      {{/if}}
-
-{{else}}
-{{!-- <div class="container"> --}}
-<section id="landing-page">
-      <h1 class="index">CRÉER DES QUIZ N'A JAMAIS ÉTÉ AUSSI FACILE!</h1>
-      <p>Créer et partager vos quiz avec vos collaborateurs.</p>
-      <p>Simple, rapide et gratuit!</p>
-</section>
-{{!-- </div> --}}
-{{/if}}
+      </div>
+      <div class="back">
+            <div class="overlay"></div>
+      </div>
+</div>

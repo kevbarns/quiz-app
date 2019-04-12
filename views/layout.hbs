@@ -15,27 +15,68 @@
 
 
   <header>
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <a class="logo" href="/">Quizme</a>
-      {{#if currentUser}}
-      <a class="btn btn-color" role="button" href="/logout">LOG OUT</a>
-      {{else}}
-      <ul class="nav margin-nav ">
-        <li class="nav-item">
-          <a class="nav-link" href="#">SOLUTION</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">CONTACT</a>
-        </li>
-      </ul>
-      <a class="btn btn-color" role="button" href="/signup">S'INSCRIRE</a>
-      <a class="btn btn-color" role="button" href="/login">S'IDENTIFIER</a>
+    <nav class="navbar navbar-expand-lg container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <a class="logo" href="/">Quizme</a>
+        </div>
+        <div class="col-6 container">
+          <div class="row">
+            {{#if currentUser}}
+              <div class="col-9"></div>
+              <div class="col-3">
+
+              </div>
+
+            {{else}}
+            <div class="col-3">
+              <a class="nav-link" href="#">SOLUTION</a>
+            </div>
+            <div class="col-3">
+              <a class="nav-link" href="#">CONTACT</a>
+            </div>
+            <div class="col-3">
+              <a class="btn btn-color" role="button" href="/signup">S'INSCRIRE</a>
+              </div>
+            <div class="col-3">
+              <a class="btn btn-color" role="button" href="/login">S'IDENTIFIER</a>  
+            </div>
+            {{/if}}
+          </div>
+        </div>
       </div>
     </nav>
-    {{/if}}
   </header>
 
-  {{{body}}}
+  <div class="container-fluid h-100">
+  <div class="row justify-content-center h-100">
+
+    <div class="col-1 hidden-md-down">
+        {{#if currentUser}}
+  <div class="sidebar h-100">
+    <div class="sticky h-100">
+      <div>
+        <h3>Clock</h3>
+        <h3>Folder</h3>
+      </div>
+      <div>
+      <a class="btn btn-small" role="button" href="/logout">LOG OUT</a>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+    </div>
+
+    <div class="col-11">
+      {{{body}}}
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
