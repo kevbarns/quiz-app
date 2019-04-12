@@ -8,6 +8,16 @@ const QuizDetail = require("../models/quiz-detail-model.js");
 // TODO : Recover quiz created by the company (route /quizzes)
 // TODO : Enable link to see the details of one quiz
 
+router.use("/", (req, res, next) => {
+  const userId = req.user._id;
+  res.locals.layout = "dashboard/dashboard-layout.hbs";
+  next();
+});
+
+router.get("/dashboard", (req,res,next) => {
+  res.render("dashboard/dashboard-home");
+})
+
 // route dashboard fin de creation du quiz
 // TODO : Proposer un bouton pour y accéder dans un nouvelle onglet et afficher l'URL
 

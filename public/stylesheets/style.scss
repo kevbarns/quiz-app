@@ -214,3 +214,14 @@ label {
     font-size: 18px;
   }
 }
+
+.dashboard-sidebar {
+  height: 100%;
+  position: fixed;
+  margin-top: 40px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
