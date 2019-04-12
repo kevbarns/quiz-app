@@ -1,0 +1,63 @@
+<div id="mySidenavSign" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closePanel()">&times;</a>
+  <div class="container">
+    <h4 class="color-yellow">S'INSCRIRE</h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit enim dignissimos, laborum temporibus labore
+      ducimus similique voluptas? Dolor facere illo molestiae distinctio exercitationem! Laudantium cum quas
+      quibusdam vero, velit similique!</p>
+
+    <div class="row">
+      <div class="col">
+        <form action="/process-signup" method="POST" enctype="multipart/form-data">
+          {{errorMessage}}
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputFullName">Nom Complet</label>
+              <input type="text" class="form-control" id="inputFullName" name="fullName" placeholder="Ex: John Doe" />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Entrer Email" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCompanyName">Nom Entreprise</label>
+              <input type="text" class="form-control" id="inputCompanyName" name="CompanyName"
+                placeholder="Entrer Nom Entreprise" />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword">Mot de passe</label>
+              <input type="password" class="form-control" id="inputPassword" name="originalPassword"
+                placeholder="Entrer mot de passe" />
+            </div>
+
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputPicture">Logo Entreprise</label>
+              <input type="file" name="companyLogo" class="form-control-file" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-12">
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Oui, je souhaite recevoir les emails de
+                  Quizme</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group form-check col-12">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">J'accepte les conditions d'utilisation</label>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

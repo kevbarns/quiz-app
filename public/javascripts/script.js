@@ -12,8 +12,9 @@ function openNavSign() {
 }
 
 /* Close/hide the sidenav signup */
-function closeNavSign() {
+function closePanel() {
   document.getElementById("mySidenavSign").style.width = "0";
+  document.getElementById("mySidenavLog").style.width = "0";
 }
 
 /* Open the sidenav login*/
@@ -21,7 +22,3 @@ function openNavLog() {
   document.getElementById("mySidenavLog").style.width = "50%";
 }
 
-/* Close/hide the sidenav login */
-function closeNavLog() {
-  document.getElementById("mySidenavLog").style.width = "0";
-}
