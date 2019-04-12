@@ -26,7 +26,12 @@ router.post("/process-signup", uploadFile.single("companyLogo"), (req, res, next
   // encrypt the user's password before saving it
   const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
 
-  User.create({fullName, email, companyName, companyLogo, encryptedPassword})
+  User.create({
+    fullName, 
+    email, 
+    companyName, 
+    companyLogo, 
+    encryptedPassword})
     .then(userDoc => {
       // redirect to the HOME PAGE if the sign up WORKED
       req.logIn(userDoc, () => {

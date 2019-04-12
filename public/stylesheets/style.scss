@@ -1,7 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
+html {
+  height: 100%;
+
+}
+
+header {
+  height: 10%;
+}
+
 body {
   font-family: "Roboto", sans-serif;
+  height: 90%;
 }
 
 //LANDING-PAGE
@@ -47,13 +57,24 @@ body {
   border-radius: 3px;
 }
 
+.btn-small {
+  background-color: #efb233;
+  width: 90px;
+  justify-content: right;
+  margin-right: 10px;
+  text-align: center;
+  border-radius: 3px;
+}
+
 .margin-nav {
   margin-left: 650px;
 }
 
-ul li a {
+.nav-link {
   color: #ffffff;
 }
+
+
 
 .index {
   font-weight: 700;
