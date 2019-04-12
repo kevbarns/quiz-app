@@ -7,5 +7,13 @@ npm-debug.log
 # Environment Variables should NEVER be published
 .env
 
+# CSS 
+style.css
+style.css.map
+
+# Misc
+.DS_Store
+
 # Draft
 cards-route.js
+
