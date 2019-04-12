@@ -18,7 +18,6 @@
     <nav class="navbar navbar-expand-lg fixed-top">
       <a class="logo" href="/">Quizme</a>
       {{#if currentUser}}
-      <a class="btn btn-color" role="button" href="/logout">LOG OUT</a>
       {{else}}
       <ul class="nav my-2 ml-auto">
         <li class="nav-item">
@@ -34,7 +33,8 @@
 
       <a class="btn btn-color" role="button" onclick="openNavLog()">S'IDENTIFIER </a>
       {{> login }}
-    </nav> {{/if}}
+    </nav>
+    {{/if}}
   </header>
 
   {{{body}}}

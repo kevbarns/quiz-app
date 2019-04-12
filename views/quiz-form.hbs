@@ -1,30 +1,27 @@
 <main class="dashboard container-fluid h-100">
-<h3>CRÉER UN QUIZZ</h3>
-
-<form class="form-box container" action="/process-quiz" method="POST">
-    <div class="row input-box">
-    <label>
-    Titre
-    <textarea name="name" rows="1" cols="50"></textarea>
-  </label>
-
-  <label>
-    Description
-    <textarea name="description" rows="4" cols="50"></textarea>
-  </label>
+  <div class="container-fluid main-top">
+    <h3>CRÉER UN QUIZZ</h3>
+    <a href="/"><button class="btn btn-color">RETOUR</button></a>
   </div>
 
+  <form class="form-box container" action="/process-quiz" method="POST">
+    <div class="row input-box">
+      <label>
+        Titre
+        <textarea name="name" rows="1" cols="50"></textarea>
+      </label>
 
-  {{!-- <label>
-    <select type="text" name="theme" >
-      <option value="Classic">Classic</option>
-      <option value="Survey">Survey</option>
-      <option value="Other">Other</option>
-    </select> 
-  </label> --}}
-  <button class="btn btn-color">VALIDER</button>
-</form>
-      <div class="back">
-            <div class="overlay"></div>
-      </div>
+      <label>
+        Description
+        <textarea name="description" rows="4" cols="50"></textarea>
+      </label>
+    </div>
+
+    <button class="btn btn-color">VALIDER</button>
+  </form>
+
+  <div class="back">
+    <div class="overlay">
+    </div>
+  </div>
 </main>

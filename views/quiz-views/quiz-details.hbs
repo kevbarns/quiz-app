@@ -1,63 +1,24 @@
 <main class="dashboard container-fluid h-100">
-<div class="questions">
-<h3>CRÉER UN QUIZZ</h3>
-<a href="/"><button class="btn btn-color">TERMINER</button></a>
-</div>
+  <div class="container-fluid main-top">
+    <h3>CRÉER UN QUIZZ</h3>
+    <h2>{{quizItem.name}}</h2>
+  </div>
 
-<h2>{{quizItem.name}}</h2>
 
-<form  class="form-box container" action="/quiz/{{quizItem._id}}/process-card" method="POST">
-    <div class="row input-box">
-      <label for="question">
-        Question
-        <textarea name="question" rows="1" cols="40"></textarea>
-      </label>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-6">
-          <label>
-            Réponse 1
-            <textarea name="firstAnswer" rows="1" cols="15"></textarea>
-          </label>
-
-            <input type="checkbox" name="firstTrue">
-          <label>
-            Réponse 3
-            <textarea name="thirdAnswer" rows="1" cols="15"></textarea>
-          </label>
-            <input type="checkbox" name="thirdTrue">
-        </div>
-
-        <div class="col-6">
-          <label>
-            Réponse 2
-            <textarea name="secondAnswer" rows="1" cols="15"></textarea>
-          </label>
-            <input type="checkbox" name="secondTrue">
-
-      
-          <label>
-            Réponse 4
-            <textarea name="fourthAnswer" rows="1" cols="15"></textarea>
-          </label>
-            <input type="checkbox" name="fourthTrue">
-        </div>
+  <section class="form-box container">
+    <div class="row validation-box">
+      <div class="col-6">
+        <a id="quizLink" href="/{{quizItem._id}}"><button class="btn btn-color">TESTER</button></a>
+      </div>
+      <div class="col-6">
+        <button onclick="toClipboard()" class="btn btn-color">PARTAGER</button>
       </div>
     </div>
-    </div>
-  <button type="submit" class="btn btn-color">VALIDER</button>
-</form>
+    </s>
 
-      {{#if cardList}}
-        {{#each cardList}}
-          <h4>{{this.question}}</h4>
-            {{#each this.options}}
-              <h5>{{option}} {{#if valid}}✅{{/if}}</h5>
-            {{/each}}
-        {{/each}}
-      {{/if}}
-
-            <div class="back">
-            <div class="overlay"></div>
+    <div class="back">
+      <div class="overlay">
       </div>
-      </main>
+    </div>
+
+</main>
