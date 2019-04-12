@@ -98,95 +98,48 @@ body {
   margin-left: 210px;
 }
 
-.navbar {
-  display: block;
-}
-
-.sidebar {
-	position: relative;
-	top: 0;
-  left: 0;
-  color: chartreuse;
-	
-	/* Position the items */
-	// &:nth-child(2) { top: 25%; }
-	// &:nth-child(3) { top: 50%; }
-	// &:nth-child(4) { top: 75%; }
-}
-
-.sticky {
-  position: -webkit-sticky;
-	position: sticky;
-	top: 0;
-    
-  padding: 0 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.dashboard {
+// SLIDING SIGNUP
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
   background-color: #ffffff;
-  padding: 2%;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 
-h3 {
-  color: #efb233;
-  font-weight: bold;
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
 
-.quiz-card {
-  width: 20%;
+.sidenav a:hover {
+  color: #f1f1f1;
 }
 
-.input-box {
-  // margin: auto;
-  height: 70%;
-  width: 100%;
-  padding: 5% 20%;
-  margin-bottom: 20px;
-  background-color: #f5f3f1;
-  border-color: #979797;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 1%; 
-  display: flex;
-  flex-direction: column;
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
 }
 
-.input-box textarea {
-  display:block;
-  width: 100%;
-  border-style: none;
-  background-color: white;
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
-.input-box label {
-  display:block;
-  color: #091e4d;
-  font-weight: bolder;
-  font-size: 1.5em;
-
-}
-
-.form-box {
- height: 85%;
- margin: 2% auto;
- display: flex;
- flex-direction: column;
- align-items: flex-end;
-}
-// .large {
-//   height: 50%;
-//   line-height: normal;
-// }
-
-h2 {
-  text-align: center;
-}
-
-.questions {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+// SIDEBAR

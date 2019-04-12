@@ -15,72 +15,100 @@
 
 
   <header>
-    <nav class="navbar navbar-expand-lg container-fluid">
-      <div class="row">
-        <div class="col-6">
-          <a class="logo" href="/">Quizme</a>
-        </div>
-        <div class="col-6 container">
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <a class="logo" href="/">Quizme</a>
+      {{#if currentUser}}
+      <a class="btn btn-color" role="button" href="/logout">LOG OUT</a>
+      {{else}}
+      <ul class="nav margin-nav ">
+        <li class="nav-item">
+          <a class="nav-link" href="#">SOLUTION</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">CONTACT</a>
+        </li>
+      </ul>
+
+      {{!-- SIGNUP TOGGLE WHEN CLICKED --}}
+
+      <a class="btn btn-color" role="button" onclick="openNavSign()">S'INSCRIRE</a>
+
+      <div id="mySidenavSign" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavSign()">&times;</a>
+        <div class="container">
           <div class="row">
-            {{#if currentUser}}
-              <div class="col-9"></div>
-              <div class="col-3">
-
-              </div>
-
-            {{else}}
-            <div class="col-3">
-              <a class="nav-link" href="#">SOLUTION</a>
+            <div class="col">
+              <form action="/process-signup" method="POST" enctype="multipart/form-data">
+                {{errorMessage}}
+                <h6> <a class="cancel" href="/">Cancel</a></h6>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputFullName">Full Name</label>
+                    <input type="text" class="form-control" id="inputFullName" name="fullName"
+                      placeholder="Full name here" />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email here" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCompanyName">Company Name</label>
+                    <input type="text" class="form-control" id="inputCompanyName" name="CompanyName"
+                      placeholder="Company Name here" />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPicture">Company Logo</label>
+                    <input type="file" name="companyLogo" class="form-control-file" 
+                      placeholder="Need to find a way to upload a picture from computer or phone" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" name="originalPassword"
+                      placeholder="Password here" />
+                  </div>
+                </div>
+                <button class="btn btn-primary">Submit</button>
+              </form>
             </div>
-            <div class="col-3">
-              <a class="nav-link" href="#">CONTACT</a>
-            </div>
-            <div class="col-3">
-              <a class="btn btn-color" role="button" href="/signup">S'INSCRIRE</a>
-              </div>
-            <div class="col-3">
-              <a class="btn btn-color" role="button" href="/login">S'IDENTIFIER</a>  
-            </div>
-            {{/if}}
           </div>
         </div>
       </div>
-    </nav>
-  </header>
 
-  <div class="container-fluid h-100">
-  <div class="row justify-content-center h-100">
+      {{!-- LOGIN TOGGLE WHEN CLICKED --}}
 
-    <div class="col-1 hidden-md-down">
-        {{#if currentUser}}
-  <div class="sidebar h-100">
-    <div class="sticky h-100">
-      <div>
-        <h3>Clock</h3>
-        <h3>Folder</h3>
+      <a class="btn btn-color" role="button" onclick="openNavLog()">S'IDENTIFIER </a>
+      <div id="mySidenavLog" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavLog()">&times;</a>
+        <div class="container">
+          <form action="/process-login" method="POST">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>
+                  Email:
+                  <input type="email" class="form-control" name="email" placeholder="enter email here" required />
+                </label>
+              </div>
+              <div class="form-group col-md-6">
+                <label>
+                  Password:
+                  <input type="password" class="form-control" name="originalPassword" placeholder="Enter password here"
+                    required />
+                </label>
+              </div>
+            </div>
+            <button class="btn btn-primary">Log In</button>
+          </form>
+        </div>
       </div>
-      <div>
-      <a class="btn btn-small" role="button" href="/logout">LOG OUT</a>
-      </div>
-    </div>
-  </div>
-  {{/if}}
-    </div>
-
-    <div class="col-11">
-      {{{body}}}
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
+    </nav> {{/if}}
+  </header> {{{body}}}
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
     integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
     crossorigin="anonymous"></script>
