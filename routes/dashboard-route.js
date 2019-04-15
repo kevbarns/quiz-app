@@ -4,12 +4,8 @@ const router = express.Router();
 const Quiz = require("../models/quiz-model.js");
 const QuizDetail = require("../models/quiz-detail-model.js");
 
-// route dashboard homepage
-// TODO : Recover quiz created by the company (route /quizzes)
-// TODO : Enable link to see the details of one quiz
-
 router.use("/", (req, res, next) => {
-  const userId = req.user._id;
+  res.locals.data = req.user;
   res.locals.layout = "dashboard/dashboard-layout.hbs";
   next();
 });
@@ -67,7 +63,6 @@ router.post("/process-quiz", (req, res, next) => {
   // (it's the document from the database of the logged-in user)
   const userId = req.user._id;
   const { name, description, theme, url } = req.body;
-  // res.json(req.body);
   Quiz.create({ userId, name, description, theme, url })
     .then(quizDoc => {
       // redirect if it's successful
@@ -83,6 +78,7 @@ router.post("/process-quiz", (req, res, next) => {
 router.post("/quiz/:quizId/process-card", (req, res, next) => {
   // req.user comes from Passport's deserializeUser()
   // (it's the document from the database of the logged-in user)
+  
   const { quizId } = req.params;
   // Maybe we don't get the answers and thruth as arrays and we will need to build it here
   const {
@@ -96,7 +92,6 @@ router.post("/quiz/:quizId/process-card", (req, res, next) => {
     thirdTrue,
     fourthTrue
   } = req.body;
-  // res.json(req.body);
   QuizDetail.create({
     quizId,
     question,
